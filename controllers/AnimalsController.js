@@ -7,6 +7,9 @@ export const AnimalController = {
             baseURL: process.env.API,
             url: `animals`,
             data: animal,
+            headers:{
+                'Content-Type': 'application/json'
+            }
         })
     },
     list() {
@@ -16,26 +19,12 @@ export const AnimalController = {
             url: 'animals'
         });
     },
-    delete(name) {
+    delete(animal) {
         return axios({
             method: 'DELETE',
             baseURL: process.env.API,
-            url: `animals/${name}`,
+            url: `animals/${animal}`,
         });
     },
-    getAnimal(name) {
-        return axios({
-            method: 'GET',
-            baseURL: process.env.API,
-            url: `animals/${name}`,
-        });
-    },
-    updateAnimal(name) {
-        return axios({
-            method: 'PUT',
-            baseURL: process.env.API,
-            url: `animals/${name}`,
-        });
-    }
 }
 
